@@ -1,0 +1,19 @@
+armazena as regras de negócio da nossa aplicação. Regras de negócio são identificadas como algo muito
+especifico na minha aplicação, ou seja, são todos os precessos e condições que fazem a minha aplicação
+funcionar ou agir como se espera. são as coisas especificas da aplicação que fazem a logica dele funcionar
+são os if, retornos, paginação, relacionametos de dados
+
+cada servço deve ter somente uma funcionalidade, ele não deve conter várias logicas encadeadas em si
+por exemplo a minha service de create Appointment deve conter somente por criar o appointment
+
+a service não tem acesso aos dados da requisição e da resposta, por isso nos lançamos um throw, não um erro com base em 
+response.json
+
+como todo vez que eu uso o new para criar um nova instancia de repositorio, eu crio um repositorio diferete
+a melhor forma de usar o mesmo repositorio de forma global, e passando ele como parametro de uns metodos
+construr e para indicar que a minha variavel é um repository eu coloco : e o tipo do meu repositorio
+dessa forma a minha variavel passa ser uma instancia do meu repositorio
+    constructor(private appointmentRepository: AppointmentRepository){
+        
+    }
+e toda vez que eu for usar essa instancia do meu repositorio eu uso o this

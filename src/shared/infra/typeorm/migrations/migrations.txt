@@ -1,0 +1,13 @@
+as migrations funcionam como o github para o nosso código, ou seja,
+elas controlam as alterações, as versoes do banco de dados e controlham ações 
+simultanaes. Ao ivnes de afazer a altereção direta no banco de dados o
+dev cria uma migration que tem as intruçoes das alterações que ele quer fazer banco 
+de dados. Evita que o banco de dados esteja em versoes diferentes
+
+
+
+
+Decorators do typeScript
+
+funciona como uma função, quando colocamos um decorateor em cima de algo, por exemplo uma classe
+estamos dizendo aque a classe será o parametro do meu decorator

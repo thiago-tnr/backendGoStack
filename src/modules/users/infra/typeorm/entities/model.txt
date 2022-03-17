@@ -1,0 +1,7 @@
+o model é o formato de um dado que será armazenado em algum lugar
+através dele eu consigo tipar aquilo que eu quero receber
+terá uma funcionalidade similar a da interface, ou seja, estou estabelenco um contrato de criação
+
+representação de como um dado é salvo na aplicação, como ele é composto e quais seus dados
+
+

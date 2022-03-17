@@ -1,0 +1,66 @@
+os repositorios são um conexão entre a persistencia de dados e as rotas, essa camada serve para fazer todas as chamadas do meu banco de dados
+tirando assim a responsabilidade da model e fazer um contrato de uso, ou seja, o tipo de dado que minha informação deve conta e as invocações
+de querys
+
+Dessa forma, todas as responsabilidades de criação, edição, atualização, inserção de dados, fica para a minha repository.
+O metodo construtor é o metodo que inicializa uma variavel que está dentro dele (this.minhaVariável)
+
+CRIANDO REPOSITORIOS 
+
+//o meu create vai receber dentro dele tudo que eu preciso para criar um novo agendamento
+//os metodos vem como pararemetros para serem obrigatorios. 
+   
+    public create(provider:string, date:Date){
+
+    }
+
+os dados do repositorio não devem ser acessiveis fora do escopo do repositorio, eles
+são de responsabilidade do escopo. Então para determinada variavel privada seja acessada
+fora do escopo eu devo criar um metodo que fara o que eu precioso, mais sem deixa a variavel
+"aberta".
+
+por exemplo, eu tenho um metodo que procura uma date com base no appointment que agora é privado
+então eu crio um metodo para fazer isso
+
+//forma antiga 
+
+  const findAppointmentInSameDate = appointments.find(appointment => 
+        isEqual(parsedDate, appointment.date));
+
+//metodo de acesso
+
+    private appointmentList: Appointment[];
+
+    constructor(){
+        this.appointmentList = [];
+    }
+
+    public findByDate(){
+        
+    }
+
+    DTO - data transfer object é quando eu passo informação de um arquivo para o outro
+    ou seja, eu estou tranferindo um objeto de dados. Dessa forma fica claro que para transmitir
+    dados de um arquivo para outro é sempre legal usarmos objeto, principalmente se for um objeto
+    composto por mais de um dado.
+
+    A melhor forma de passar dados para o meu arquivo é usado a desestruturação de dados, pois 
+    se eu passo os parametros de forma direta, e minha função espera mais dados, ela pode quebrar
+
+    se eu precioso de a, b e c para criar algo e na função eu passo só a e b, a minha aplicação
+    não criara.
+    Através da desestruturação eu crio uma variavel unica que recebe os dados que vem do meu body
+
+    Quando eu faço o envio de dados usando o DTO a minha propria ide me avisa qual o tipo de argumento
+    está faltnao, pois a minha interface já está com todos os meus parametros setados. Quando eu envio parametros
+    sem o DTO eu somente sou avisado que a minha aplicação espera mais paraemtros, pórem não fala o nome
+    nem o tipo dos mesmos.
+
+    
+    O repositorio é um acesso ao meu banco de dados para buscar alguma informação,
+    são metodos e querys que eu executo para buscar algo. O typeOrm possui um gama de funções
+    que já buscam mutias informações no banco de daods, por isso, muitas das vezes eu não preciso criar
+    um respositorio especifico para buscar algo, para instancia o getRepository, passando o meu model
+    como parametro para o tipo que dado que eu quero retornar seja identificado e o banco de dados
+
+    
